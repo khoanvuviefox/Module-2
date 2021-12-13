@@ -1,4 +1,4 @@
-package Bai5;
+package Bai5.StaticProperty;
 
 public class Car {
     private String name;

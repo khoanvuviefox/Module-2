@@ -1,4 +1,4 @@
-package Bai5;
+package Bai5.StaticProperty;
 
 public class TestStaticProperty {
     public static void main(String[] args) {
