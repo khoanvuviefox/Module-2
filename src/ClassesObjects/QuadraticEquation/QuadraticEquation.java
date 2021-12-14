@@ -1,42 +1,63 @@
 package ClassesObjects.QuadraticEquation;
 
-import java.util.Scanner;
 
 public class QuadraticEquation {
-    private static final Scanner scanner = new Scanner(System.in);
-    public static void main(String[] args) {
-        System.out.print("Nhập hệ số bậc 2, a = ");
-        float a = QuadraticEquation.scanner.nextFloat();
-        System.out.print("Nhập hệ số bậc 1, b = ");
-        float b = QuadraticEquation.scanner.nextFloat();
-        System.out.print("Nhập hằng số tự do, c = ");
-        float c = scanner.nextFloat();
-        QuadraticEquation.KetQua(a, b, c);
+    private Object seft = this;
+    private double a;
+    private double b;
+    private double c;
+    private double d;
+
+    public Object getSeft() {
+        return seft;
     }
-    public static void KetQua(float a, float b, float c) {
-        if (a == 0) {
-            if (b == 0) {
-                System.out.println("Phương trình vô nghiệm!");
-            } else {
-                System.out.println("Phương trình có một nghiệm: "
-                        + "r = " + (-c / b));
-            }
-            return;
+
+    public double getA() {
+        return a;
+    }
+
+    public double getB() {
+        return b;
+    }
+
+    public double getC() {
+        return c;
+    }
+
+    public double getD() {
+        return d;
+    }
+
+    public static String explain() {
+        return "QuadraticEquation: ax^2+bx+c=d";
+    }
+
+    public QuadraticEquation(double a, double b, double c, double d) {
+        this.a = a;
+        this.b = b;
+        this.c = c;
+        this.d = d;
+        this.c = this.c - this.d;
+
+    }
+
+    public double getDiscriminant() {
+        return this.b * this.b - 4 * this.a * this.c;
+    }
+
+    public double getRoot1() {
+        double root1 = 0;
+        if (this.getDiscriminant() >= 0) {
+            root1 = (-this.b - Math.sqrt(this.getDiscriminant())) / (2 * this.a);
         }
-        float delta = b*b - 4*a*c;
-        float r1;
-        float r2;
-        if (delta > 0) {
-            r1 = (float) ((-b + Math.sqrt(delta)) / (2*a));
-            r2 = (float) ((-b - Math.sqrt(delta)) / (2*a));
-            System.out.println("Phương trình có 2 nghiệm là: "
-                    + "r1 = " + r1 + " và r2 = " + r2);
-        } else if (delta == 0) {
-            r1 = (-b / (2 * a));
-            System.out.println("Phương trình có nghiệm kép: "
-                    + "r1 = r2 = " + r1);
-        } else {
-            System.out.println("Phương trình vô nghiệm!");
+        return root1;
+    }
+
+    public double getRoot2() {
+        double root2 = 0;
+        if (this.getDiscriminant() >= 0) {
+            root2 = (-this.b + Math.sqrt(this.getDiscriminant())) / (2 * this.a);
         }
+        return root2;
     }
 }
