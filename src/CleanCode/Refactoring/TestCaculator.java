@@ -1,6 +1,8 @@
-package CleanCode;
+package CleanCode.Refactoring;
+import CleanCode.Refactoring.Calculator;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 class TestCaculator {
 
